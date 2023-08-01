@@ -11,7 +11,8 @@ import Foundation
 
 struct K {
     
-    static let server = "https://api.openweathermap.org/data/2.5/weather?appid=b359c3499f4947ec6b4e4ec31dda9b99&units=metric"
+    static let server = "https://api.openweathermap.org/data/2.5/forecast?"
+    static let appId = "b359c3499f4947ec6b4e4ec31dda9b99"
     
     struct ModelConditionName {
         static let cloudBolt = "cloud.bolt"

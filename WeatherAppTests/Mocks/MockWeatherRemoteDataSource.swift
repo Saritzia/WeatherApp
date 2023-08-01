@@ -8,13 +8,13 @@
 import Foundation
 @testable import WeatherApp
 
-final class MockWeatherRemoteDataSource : NameSarchedRemoteDataSourceProtocol {
-    
-    func getWeatherAPIModel(cityName: String) async throws -> WeatherApp.WeatherDataSourceModel {
-        <#code#>
-    }
-    
-    
-    
-    
-}
+//final class MockWeatherRemoteDataSource : NameSarchedRemoteDataSourceProtocol {
+//
+//    func getWeatherAPIModel(cityName: String) async throws -> WeatherApp.WeatherDataSourceModel {
+//
+//    }
+//
+//
+//
+//
+//}

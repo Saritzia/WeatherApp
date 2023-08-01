@@ -16,8 +16,6 @@ struct WeatherModel {
     let temperature : Float
     let minTemperature : Float
     let maxTemperature : Float
-    let suntise : Int
-    let sunshine : Int
     
     var conditionName : String {
         switch conditionId {
