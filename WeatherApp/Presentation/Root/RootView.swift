@@ -11,16 +11,24 @@ struct RootView: View {
     //MARK: -Properties
     @EnvironmentObject var rootViewModel : RootViewModel
     
+    
     var body: some View {
-        switch (rootViewModel.appStatus) {
-        case .current : CurrentView()
-        case .forecast : HomeForecastView()
-        }
+        TabView{
+            CurrentView().tabItem {
+                Label("Current day", image: "thermometer.sun")
+            }
+            HomeForecastView().tabItem {
+                Label("5 days", image: "calendar.badge.exclamationmark")
+            }
+        }.foregroundColor(.white)
     }
 }
 
 struct RootView_Previews: PreviewProvider {
+    static let myEnvObject = RootViewModel(repository: RepositoryImplementation(remoteDataSource: NameSarchedRemoteDataSource()))
+    
     static var previews: some View {
-        RootView()
+        CurrentView()
+            .environmentObject(myEnvObject)
     }
 }

@@ -12,21 +12,28 @@ struct CurrentView: View {
     @EnvironmentObject var rootViewModel : RootViewModel
     
     var body: some View {
-        ZStack {
+        VStack{
             //MARK: -Search bar
-            VStack{
+            SearchBar()
+            Spacer()
+            VStack(alignment: .trailing, spacing:20){
+                //MARK: -Weather image
                 Image(systemName: rootViewModel.forecast?.weatherDataArray.first?.conditionName ?? "cloud").resizable().frame(width: 80,height: 80).foregroundColor(.white).padding(EdgeInsets(top: 40, leading: 50, bottom: 20, trailing: -100)).accessibilityIdentifier("weatherImage")
-                
+                //MARK: -Text: temperature
                 Text(rootViewModel.forecast?.weatherDataArray.first?.temperatureString ?? "0.0").foregroundColor(Color(.white)).font(.system(size: 40)).bold().padding(EdgeInsets(top: 10, leading: 50, bottom: 20, trailing: -100)).accessibilityIdentifier(K.Views.temperatureLabelAccesibilityName)
-                
-                Text(rootViewModel.forecast?.cityName ?? "").foregroundColor(Color(.white)).font(.system(size: 30)).bold().padding(EdgeInsets(top: 10, leading: 50, bottom: 20, trailing: -100)).accessibilityIdentifier(K.Views.cityLabelAccesibilityName)
+                //MARK: -Text: city name
+                Text(rootViewModel.forecast?.cityName ?? "City").foregroundColor(Color(.white)).font(.system(size: 30)).bold().padding(EdgeInsets(top: 10, leading: 50, bottom: 20, trailing: -100)).accessibilityIdentifier(K.Views.cityLabelAccesibilityName)
             }
-        }
+            Spacer()
+        }.background(Image(K.Views.backgroundImage).resizable().ignoresSafeArea())
     }
 }
+
+struct CurrentView_Previews: PreviewProvider {
+    static let myEnvObject = RootViewModel(repository: RepositoryImplementation(remoteDataSource: NameSarchedRemoteDataSource()))
     
-    struct CurrentView_Previews: PreviewProvider {
-        static var previews: some View {
-            CurrentView()
-        }
+    static var previews: some View {
+        CurrentView()
+            .environmentObject(myEnvObject)
     }
+}

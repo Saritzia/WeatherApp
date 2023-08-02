@@ -14,7 +14,6 @@
 		A503289B2A7A5BE900569700 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A503289A2A7A5BE900569700 /* RootView.swift */; };
 		A50328A02A7A7E1600569700 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A503289F2A7A7E1600569700 /* SearchBar.swift */; };
 		A50328A32A7A838B00569700 /* CurrentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50328A22A7A838B00569700 /* CurrentView.swift */; };
-		A50328A52A7A840B00569700 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50328A42A7A840B00569700 /* TabBar.swift */; };
 		A59932E12A7A2A8600599FB0 /* RepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59932E02A7A2A8600599FB0 /* RepositoryImplementation.swift */; };
 		A59932E42A7A442900599FB0 /* TestRepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59932E32A7A442900599FB0 /* TestRepositoryImplementation.swift */; };
 		A5E41ADA2A7811C200346404 /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E41AD92A7811C200346404 /* WeatherAppApp.swift */; };
@@ -59,7 +58,6 @@
 		A503289A2A7A5BE900569700 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A503289F2A7A7E1600569700 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		A50328A22A7A838B00569700 /* CurrentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentView.swift; sourceTree = "<group>"; };
-		A50328A42A7A840B00569700 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		A59932DD2A798FB100599FB0 /* WeatherApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WeatherApp.xctestplan; sourceTree = "<group>"; };
 		A59932DE2A798FBA00599FB0 /* WeatherApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WeatherApp.xctestplan; sourceTree = "<group>"; };
 		A59932E02A7A2A8600599FB0 /* RepositoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryImplementation.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			children = (
 				A50328932A7A579400569700 /* ForecastCellView.swift */,
 				A503289F2A7A7E1600569700 /* SearchBar.swift */,
-				A50328A42A7A840B00569700 /* TabBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -502,7 +499,6 @@
 				A5E41B0E2A7812DC00346404 /* Protocols.swift in Sources */,
 				A5E41B162A78149B00346404 /* K.swift in Sources */,
 				A5E41ADC2A7811C200346404 /* ContentView.swift in Sources */,
-				A50328A52A7A840B00569700 /* TabBar.swift in Sources */,
 				A50328942A7A579400569700 /* ForecastCellView.swift in Sources */,
 				A50328962A7A57AA00569700 /* HomeForecastViewModel.swift in Sources */,
 				A50328A32A7A838B00569700 /* CurrentView.swift in Sources */,
@@ -605,7 +601,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -659,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -733,7 +729,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.saritzia.WeatherAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -752,7 +748,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.saritzia.WeatherAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

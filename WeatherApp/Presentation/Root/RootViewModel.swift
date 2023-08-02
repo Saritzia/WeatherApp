@@ -7,15 +7,9 @@
 
 import Foundation
 
-//All the possibilities of the app status to choose the view that will be displayed
-enum AppStatus {
-    case current,forecast
-}
-
 final class RootViewModel : ObservableObject {
     
 //MARK: -Properties
-    @Published var appStatus : AppStatus = .current
     private let repository : RepositoryImplementationProtocol
     @Published var forecast : WeatherModel?
     
@@ -27,7 +21,7 @@ final class RootViewModel : ObservableObject {
 extension RootViewModel : RootViewModelProtocol {
     func getForecastWeatherDataFromRepository (cityName : String) {
         repository.getDataWeather(fromName: cityName) { repositoryForecast, error in
-            guard error != nil else {
+            guard error == nil else {
                 return
             }
             self.forecast = repositoryForecast
