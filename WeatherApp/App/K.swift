@@ -24,4 +24,11 @@ struct K {
         static let cloud = "cloud"
     }
     
+    struct Views {
+        static let locationSystemName = "location.circle.fill"
+        static let searchSystemName = "magnifyingglass.circle"
+        static let backgroundImage = "Background"
+        static let temperatureLabelAccesibilityName = "temperatureLabel"
+        static let cityLabelAccesibilityName = "cityLabel"
+    }
 }

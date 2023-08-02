@@ -13,7 +13,7 @@ import Foundation
 enum NetworkError : Error { case malFormedURL, noData, errorCode(Int?), decoding, other}
 
 final class NameSarchedRemoteDataSource : NameSarchedRemoteDataSourceProtocol {
-
+    
     //MARK: -Properties
     private let session : URLSession
     
@@ -39,7 +39,7 @@ final class NameSarchedRemoteDataSource : NameSarchedRemoteDataSourceProtocol {
             print(URLError(.badURL))
             return
         }
-      
+        
         let task = session.dataTask(with: url) { data, response, error in
             //Check all the parameters
             guard error == nil else {
