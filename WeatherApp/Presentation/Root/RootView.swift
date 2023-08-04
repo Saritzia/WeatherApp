@@ -11,16 +11,24 @@ struct RootView: View {
     //MARK: -Properties
     @EnvironmentObject var rootViewModel : RootViewModel
     
-    
+    //MARK: -View
     var body: some View {
+        //Creating a tab view to navigate between these views using the same information searched
         TabView{
-            CurrentView().tabItem {
-                Label("Current day", image: "thermometer.sun")
+            Group{
+                CurrentView().tabItem {
+                    Label(K.Literals.ahora, systemImage: K.Views.currentImage)
+                }
+                
+                HomeForecastView().tabItem {
+                    Label(K.Literals.fiveDays, systemImage: K.Views.fiveDaysImage)
+                }
             }
-            HomeForecastView().tabItem {
-                Label("5 days", image: "calendar.badge.exclamationmark")
+            
+        } .accentColor(Color.red)
+            .onAppear() {
+                UITabBar.appearance().backgroundColor = .white
             }
-        }.foregroundColor(.white)
     }
 }
 
@@ -28,7 +36,7 @@ struct RootView_Previews: PreviewProvider {
     static let myEnvObject = RootViewModel(repository: RepositoryImplementation(remoteDataSource: NameSarchedRemoteDataSource()))
     
     static var previews: some View {
-        CurrentView()
+        RootView()
             .environmentObject(myEnvObject)
     }
 }

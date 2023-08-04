@@ -22,13 +22,27 @@ struct SearchBar: View {
 //                        weatherManager.weather =              locationDataManager.weatherManager.weather
             }, label: {
                 Image(systemName: K.Views.locationSystemName)
-            }).tint(.white).cornerRadius(20)
-            .labelStyle(.iconOnly).padding(7.0).foregroundColor(.black).frame(width: 50,height: 50)
+            }).tint(.white)
+            .cornerRadius(20)
+            .labelStyle(.iconOnly)
+            .padding(7.0)
+            .foregroundColor(.black)
+            .frame(width: 50,height: 50)
             
 //MARK: -Search bar
-            TextField("Search...", text: $citySearched).padding(.horizontal,20).background(Color.white).foregroundColor(.black).cornerRadius(8).frame(height: 50).focused($textIsFocused).onTapGesture {
+            TextField("Search...", text:  $citySearched)
+                .padding(.horizontal,20)
+                .background(Color.white)
+                .foregroundColor(.black)
+                .cornerRadius(8)
+                .frame(height: 50)
+                .focused($textIsFocused)
+                .onTapGesture {
                 isEditing = true
-            }.toolbar(.visible, for: .navigationBar).submitLabel(.search).onSubmit {
+                }.toolbar(.visible, for: .navigationBar)
+                .submitLabel(.search)
+                .onSubmit {
+                rootViewModel.forecastByDay = []
                 rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched)
                 self.citySearched = ""
             }
@@ -36,6 +50,7 @@ struct SearchBar: View {
 //MARK: -Search button
                 Button(action:{
                     self.isEditing = false
+                    rootViewModel.forecastByDay = []
                     rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched)
                     textIsFocused = false
                     self.citySearched = ""

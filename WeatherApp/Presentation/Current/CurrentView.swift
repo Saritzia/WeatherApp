@@ -12,20 +12,22 @@ struct CurrentView: View {
     @EnvironmentObject var rootViewModel : RootViewModel
     
     var body: some View {
-        VStack{
-            //MARK: -Search bar
-            SearchBar()
-            Spacer()
-            VStack(alignment: .trailing, spacing:20){
-                //MARK: -Weather image
-                Image(systemName: rootViewModel.forecast?.weatherDataArray.first?.conditionName ?? "cloud").resizable().frame(width: 80,height: 80).foregroundColor(.white).padding(EdgeInsets(top: 40, leading: 50, bottom: 20, trailing: -100)).accessibilityIdentifier("weatherImage")
-                //MARK: -Text: temperature
-                Text(rootViewModel.forecast?.weatherDataArray.first?.temperatureString ?? "0.0").foregroundColor(Color(.white)).font(.system(size: 40)).bold().padding(EdgeInsets(top: 10, leading: 50, bottom: 20, trailing: -100)).accessibilityIdentifier(K.Views.temperatureLabelAccesibilityName)
-                //MARK: -Text: city name
-                Text(rootViewModel.forecast?.cityName ?? "City").foregroundColor(Color(.white)).font(.system(size: 30)).bold().padding(EdgeInsets(top: 10, leading: 50, bottom: 20, trailing: -100)).accessibilityIdentifier(K.Views.cityLabelAccesibilityName)
-            }
-            Spacer()
-        }.background(Image(K.Views.backgroundImage).resizable().ignoresSafeArea())
+            VStack{
+                //MARK: -Search bar
+                SearchBar()
+            
+                VStack(alignment: .trailing, spacing:20){
+                    //MARK: -Weather image
+                    Image(systemName: rootViewModel.forecast?.weatherDataArray.first?.conditionName ?? K.Literals.cloud).resizable().frame(width: 80,height: 80).foregroundColor(.white).padding(EdgeInsets(top: 40, leading: 50, bottom: 20, trailing: -100))
+                    //MARK: -Text: temperature
+                    Text(rootViewModel.forecast?.weatherDataArray.first?.temperatureString ?? K.Literals.defaultTemperature).foregroundColor(Color(.white)).font(.system(size: 40)).bold().padding(EdgeInsets(top: 10, leading: 50, bottom: 20, trailing: -100))
+                    //MARK: -Text: city name
+                    Text(rootViewModel.forecast?.cityName ?? K.Literals.city).foregroundColor(Color(.white)).font(.system(size: 30)).bold().padding(EdgeInsets(top: 10, leading: 50, bottom: 20, trailing: -100))
+                }
+                Spacer()
+            } .background(Image(K.Views.backgroundImage)
+                .resizable()
+                .ignoresSafeArea().foregroundColor(.white))
     }
 }
 

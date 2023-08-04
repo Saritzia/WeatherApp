@@ -8,7 +8,6 @@
 import Foundation
 
 protocol NameSarchedRemoteDataSourceProtocol {
-   // func getWeatherAPIModel(cityName : String) async throws -> ForecastDataSourceModel
     func getWeatherAPIModel(cityName : String, completion: @escaping (ForecastDataSourceModel?, NetworkError?)->())
 }
 

@@ -52,7 +52,9 @@ final class TestRepositoryImplementation: XCTestCase {
         //When
         sut?.getDataWeather(fromName: "", completion: { forecast, error in
             //Then
-            XCTAssertEqual(forecast,.init(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: Date(timeIntervalSince1970: 1690902000), conditionId: 200, description: "cloud")]),"An error must be thrown")
+            XCTAssertEqual(forecast, .init(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: Date(timeIntervalSince1970: 1690902000), conditionId: 200, description: "cloud")]),"An error must be thrown")
+            
+           
         }
         )
     }

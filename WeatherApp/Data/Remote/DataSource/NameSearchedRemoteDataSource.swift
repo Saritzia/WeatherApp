@@ -24,7 +24,7 @@ final class NameSarchedRemoteDataSource : NameSarchedRemoteDataSourceProtocol {
     //MARK: -getSessionWeather method
     func getSessionWeather(cityName : String) -> URLRequest? {
         //Get the URL using the city name passed as a parameter
-        guard let urlUsingCityName = URL(string: "\(K.server)q=\(cityName)&appid=\(K.appId)" ) else {
+        guard let urlUsingCityName = URL(string: "\(K.server)q=\(cityName)&appid=\(K.appId)") else {
             return nil
         }
         //URL request

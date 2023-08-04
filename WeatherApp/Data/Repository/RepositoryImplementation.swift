@@ -17,20 +17,20 @@ final class RepositoryImplementation : RepositoryImplementationProtocol {
     
     //MARK: -Methods
     //Function that gets the data from the remote data source and maps it to an APPModel
-    func getDataWeather(fromName cityName : String, completion: @escaping (WeatherModel?, NetworkError?)->()) {
+    func getDataWeather(fromName cityName : String, completion: @escaping ( WeatherModel?, NetworkError?)->()) {
         remoteDataSource.getWeatherAPIModel(cityName: cityName) { forecastResponse, error in
             guard let forecast = forecastResponse else {
                 completion(nil,NetworkError.noData)
                 switch error{
-                case .decoding : print("Error decoding data")
-                case .errorCode(let errorCode) :print("Error \(String(describing: errorCode))")
-                case .malFormedURL : print("URL not valid")
-                case .noData : print("Error, data not found")
-                default : print("Default error")
+                case .decoding : print(K.Literals.errorDecoding)
+                case .errorCode(let errorCode) :print("\(K.Literals.error) \(String(describing: errorCode))")
+                case .malFormedURL : print(K.Literals.invalidURL)
+                case .noData : print(K.Literals.dataNotfound)
+                default : print(K.Literals.error)
                 }
                 return
             }
-            var weatherAppModel = WeatherModelMapper.map(forecast:forecast)
+            let weatherAppModel = WeatherModelMapper.map(forecast:forecast)
             completion(weatherAppModel,nil)
         }
     }
@@ -43,7 +43,8 @@ enum WeatherModelMapper {
               weatherDataArray:
                 forecast.list.map({ list in
                 WeatherDataArray(
-                    temperature: list.main.temp,
+                    //Changing temperature from Kelvin to Celsius(°C = K − 273,15)
+                    temperature: (list.main.temp - 273.15),
                     minTemperature: list.main.temp_min,
                     maxTemperature: list.main.temp_max,
                     date: list.dt,

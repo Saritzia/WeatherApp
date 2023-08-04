@@ -27,8 +27,22 @@ struct K {
     struct Views {
         static let locationSystemName = "location.circle.fill"
         static let searchSystemName = "magnifyingglass.circle"
+        static let currentImage = "thermometer.sun"
+        static let fiveDaysImage = "calendar.badge.exclamationmark"
         static let backgroundImage = "Background"
-        static let temperatureLabelAccesibilityName = "temperatureLabel"
-        static let cityLabelAccesibilityName = "cityLabel"
+    }
+    
+    struct Literals {
+        static let errorDecoding = "Error decoding data"
+        static let error = "Error"
+        static let invalidURL = "URL not valid"
+        static let dataNotfound = "Error, data not found"
+        static let ahora = "Ahora"
+        static let fiveDays = "5 días"
+        static let blankSpace = " "
+        static let apiSymbol = "%20"
+        static let city = "Ciudad"
+        static let cloud = "cloud"
+        static let defaultTemperature = "0.0ºC"
     }
 }

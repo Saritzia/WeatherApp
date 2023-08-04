@@ -13,7 +13,8 @@ struct WeatherAppApp: App {
         WindowGroup {
             let remoteDataSource = NameSarchedRemoteDataSource()
             let repository = RepositoryImplementation(remoteDataSource: remoteDataSource)
-            RootView().environmentObject(RootViewModel(repository: repository))
+            let rootViewModel = RootViewModel(repository: repository)
+            RootView().environmentObject(rootViewModel)
         }
     }
 }
