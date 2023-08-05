@@ -16,5 +16,7 @@ protocol RepositoryImplementationProtocol {
 }
 
 protocol RootViewModelProtocol {
+    var forecast : WeatherModel? { get }
+    var forecastByDay : [WeatherModel] { get }
     func getForecastWeatherDataFromRepository(cityName : String)
 }

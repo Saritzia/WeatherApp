@@ -30,28 +30,11 @@ final class RepositoryImplementation : RepositoryImplementationProtocol {
                 }
                 return
             }
+            //Call the custom map method to get de weather app model
             let weatherAppModel = WeatherModelMapper.map(forecast:forecast)
             completion(weatherAppModel,nil)
         }
     }
-}
-
-//MARK: -Enum that maps the DataSourceModel
-enum WeatherModelMapper {
-    static func map(forecast: ForecastDataSourceModel) -> WeatherModel {
-        .init(cityName: forecast.city.name,
-              weatherDataArray:
-                forecast.list.map({ list in
-                WeatherDataArray(
-                    //Changing temperature from Kelvin to Celsius(°C = K − 273,15)
-                    temperature: (list.main.temp - 273.15),
-                    minTemperature: list.main.temp_min,
-                    maxTemperature: list.main.temp_max,
-                    date: list.dt,
-                    conditionId: list.weather.first?.id ?? 200,
-                    description: list.weather.first?.description ?? "")
-        })
-    )}
 }
 
     

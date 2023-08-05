@@ -8,29 +8,23 @@
 import Foundation
 
 //The model which information will be used in the app.
-
 struct WeatherModel : Equatable, Identifiable {
-    
     static func == (lhs: WeatherModel, rhs: WeatherModel) -> Bool {
         return lhs.cityName == rhs.cityName && lhs.weatherDataArray == rhs.weatherDataArray
     }
+    
     let id = UUID()
     let cityName : String
     let weatherDataArray : [WeatherDataArray]
 }
 
 struct WeatherDataArray : Equatable, Hashable {
-    
     let temperature : Double
     let minTemperature : Double
     let maxTemperature : Double
-    let date : Date
+    let date : String
     let conditionId : Int
-    let description : String
-    //let id = UUID()
-    var temperatureString : String {
-        return String (format: "%.1f", temperature)
-    }
+   
     var conditionName : String {
         switch conditionId {
         case 200...232 : return K.ModelConditionName.cloudBolt
@@ -42,6 +36,5 @@ struct WeatherDataArray : Equatable, Hashable {
         case 801...804 : return K.ModelConditionName.cloudBolt
         default: return K.ModelConditionName.cloud
         }
-    }
-    
+    }    
 }

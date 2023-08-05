@@ -19,11 +19,11 @@ struct ForecastCellView: View {
     var body: some View {
             HStack {
     //MARK: -Date text
-                Text(DateFormatter().string(from: forecastWeatherModelDetail.weatherDataArray.first?.date ?? Date())).font(.system(size: 22))
+                Text(forecastWeatherModelDetail.weatherDataArray.first?.date ?? "No date").font(.system(size: 22))
                            .bold()
                 Spacer()
     //MARK: -Temperature text
-                Text(forecastWeatherModelDetail.weatherDataArray.first?.temperatureString ?? K.Literals.defaultTemperature).font(.system(size: 22)).bold()
+                Text(TemperatureToString.temperatureToString(temperature: forecastWeatherModelDetail.weatherDataArray.first?.temperature ?? 0.0)).font(.system(size: 22)).bold()
                 Spacer()
     //Mark: -Weather image
                 Image(systemName: forecastWeatherModelDetail.weatherDataArray.first?.conditionName ?? K.Literals.cloud)
@@ -43,7 +43,7 @@ struct ForecastCellView: View {
 
 struct ForecastCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastCellView(forecastWeatherModelDetail: .init(cityName: "Madrid", weatherDataArray: [.init(temperature: 32, minTemperature: 34, maxTemperature: 34, date: Date(), conditionId: 200, description: "cloud")]))
+        ForecastCellView(forecastWeatherModelDetail: .init(cityName: "Madrid", weatherDataArray: [.init(temperature: 32, minTemperature: 34, maxTemperature: 34, date: "Monday", conditionId: 200)]))
     }
 }
 

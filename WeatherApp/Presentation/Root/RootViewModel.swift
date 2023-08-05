@@ -7,8 +7,7 @@
 
 import Foundation
 
-final class RootViewModel : ObservableObject {
-    
+final class RootViewModel : ObservableObject {    
 //MARK: -Properties
     let repository : RepositoryImplementationProtocol
     @Published var forecast : WeatherModel?
@@ -29,9 +28,9 @@ extension RootViewModel : RootViewModelProtocol {
             guard let forecast = repositoryForecast else {
                 return
             }
-            //Assigning the data
+            //Assign the data
             self.forecast = forecast
-            //Calling the function to get data per day
+            //Call the function to get data per day
             self.getTheWeatherForEachDayFronForecast(forecast: forecast)
         }
     }
