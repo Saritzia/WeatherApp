@@ -25,5 +25,5 @@ protocol RootViewModelProtocol {
     var forecast : WeatherModel? { get }
     var forecastByDay : [WeatherModel] { get }
     func getForecastWeatherDataFromRepository(cityName : String)
-    func getDataWeatherFromLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees) async throws
+    func getDataWeatherFromLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees,testCompletion: ((WeatherModel?)->())?) async throws
 }

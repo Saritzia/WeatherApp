@@ -21,10 +21,12 @@ struct SearchBar: View {
         HStack{
         //MARK: -LocationButton
             LocationButton{
+                //Must clear the array before each search
                 rootViewModel.forecastByDay = []
+                //Request current location
                 locationDataManager.requestLocation()
                 if let location = locationDataManager.location{
-                    rootViewModel.getDataWeatherFromLocation(latitude: location.latitude, longitude: location.longitude)
+                    rootViewModel.getDataWeatherFromLocation(latitude: location.latitude, longitude: location.longitude, testCompletion: nil)  
                 }
             }.tint(.white)
                 .cornerRadius(20)
@@ -32,33 +34,41 @@ struct SearchBar: View {
                 .padding(7.0)
                 .foregroundColor(.black)
                 .frame(width: 50,height: 50)
+            
         //MARK: -Search bar
-        TextField("Search...", text:  $citySearched)
-            .padding(.horizontal,20)
-            .background(Color.white)
-            .foregroundColor(.black)
-            .cornerRadius(8)
-            .frame(height: 50)
-            .focused($textIsFocused)
-            .onTapGesture {
-                isEditing = true
-            }.toolbar(.visible, for: .navigationBar)
-            .submitLabel(.search)
-            .onSubmit {
-                rootViewModel.forecastByDay = []
-                rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched)
-                self.citySearched = ""
-            }
+            TextField(K.Literals.textInTextField, text:  $citySearched)
+                .padding(.horizontal,20)
+                .background(Color.white)
+                .foregroundColor(.black)
+                .cornerRadius(8)
+                .frame(height: 50)
+                .focused($textIsFocused)
+                .onTapGesture {
+                    isEditing = true
+                }.toolbar(.visible, for: .navigationBar)
+                .submitLabel(.search)
+                .onSubmit {
+                    //Clear the array before each search
+                    rootViewModel.forecastByDay = []
+                    //Searching by city name
+                    rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched)
+                    self.citySearched = ""
+                }
         if isEditing {
             //MARK: -Search button
             Button(action:{
                 self.isEditing = false
+                //Clear the array before each search
                 rootViewModel.forecastByDay = []
+                //Searching by city name
                 rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched)
                 textIsFocused = false
                 self.citySearched = ""
             }){
-                Image(systemName: K.Views.searchSystemName )}.frame(width: 50,height: 50,alignment: .leading).transition(.move(edge: .leading)).foregroundColor(.white)
+                Image(systemName: K.Views.searchSystemName )}
+                    .frame(width: 50,height: 50,alignment: .leading)
+                    .transition(.move(edge: .leading))
+                    .foregroundColor(.white)
         }
         
     }.padding(10)

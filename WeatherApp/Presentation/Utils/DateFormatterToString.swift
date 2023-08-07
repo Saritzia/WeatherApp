@@ -12,8 +12,11 @@ struct DateFormatterToString {
     static func formatDateAndCastToString(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, MMM d"
+        
         let dateString = formatter.string(from: date)
-        guard let finalDate = formatter.date(from: dateString) else {return "No date"}
+        
+        guard let finalDate = formatter.date(from: dateString) else {return K.Literals.noDate}
+        
         return formatter.string(from : finalDate)
     }
 }

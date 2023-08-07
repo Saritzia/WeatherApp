@@ -8,10 +8,6 @@
 import Foundation
 import CoreLocation
 
-
-//An enum containing all the possible errors.
-enum NetworkError : Error { case malFormedURL, noData, errorCode(Int?), decoding, other}
-
 //The class that calls the weather api service.
 final class WeatherRemoteDataSource : WeatherRemoteDataSourceProtocol {
     
@@ -27,7 +23,8 @@ final class WeatherRemoteDataSource : WeatherRemoteDataSourceProtocol {
         //Get the url using the longitude and latitude values
         guard let urlUsingLocation = URL(string: "\(K.server)lat=\(latitude)&lon=\(longitude)&appid=\(K.appId)") else { throw NetworkError.malFormedURL }
         //URL request
-        let urlRequest = URLRequest(url: urlUsingLocation)
+        var urlRequest = URLRequest(url: urlUsingLocation)
+        urlRequest.httpMethod = K.Literals.get
         
         let (data, _) = try await session.data(for:urlRequest)
         
@@ -43,7 +40,8 @@ final class WeatherRemoteDataSource : WeatherRemoteDataSourceProtocol {
             return
         }
         //URL request
-        let urlRequest = URLRequest(url: urlUsingCityName)
+        var urlRequest = URLRequest(url: urlUsingCityName)
+        urlRequest.httpMethod = K.Literals.get
         
         let task = session.dataTask(with: urlRequest) { data, response, error in
             //Check all the parameters

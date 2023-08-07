@@ -23,8 +23,7 @@ struct WeatherDataArray : Equatable, Hashable {
     var minTemperature : Double
     var maxTemperature : Double
     let date : String
-    let conditionId : Int
-   
+    let conditionId : Int   
     var conditionName : String {
         switch conditionId {
         case 200...232 : return K.ModelConditionName.cloudBolt

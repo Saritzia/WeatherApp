@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-final class RootViewModel : ObservableObject {    
+final class RootViewModel : ObservableObject {
     //MARK: -Properties
     let repository : RepositoryImplementationProtocol
     @Published var forecast : WeatherModel? 
@@ -71,17 +71,17 @@ extension RootViewModel : RootViewModelProtocol {
         }
     }
     
-    //The function that starts the call to the repository using the location
-    func getDataWeatherFromLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees){
-        
-        DispatchQueue.main.async {
-            Task {
+    //The function that initiates the call to the repository using the location
+    func getDataWeatherFromLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees, testCompletion: ((WeatherModel?)->())?){
+       DispatchQueue.main.async {
+        Task {
                 guard let forecast = try? await self.repository.getDataWeatherFromLocation(latitude: latitude, longitude: longitude) else {
                     return
                 }
                 self.forecast = forecast
+                testCompletion?(forecast)
                 self.getTheWeatherForEachDayFronForecast(forecast: forecast)
             }
-        }
+       }
     }
 }

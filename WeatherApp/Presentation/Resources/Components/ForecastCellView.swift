@@ -15,23 +15,26 @@ struct ForecastCellView: View {
         self.forecastWeatherModelDetail = forecastWeatherModelDetail
     }
     
-    //MARL: -View
+    //MARK: -View
     var body: some View {
             HStack {
     //MARK: -Date text
-                Text(forecastWeatherModelDetail.weatherDataArray.first?.date ?? "No date").font(.system(size: 22))
-                           .bold()
+                Text(forecastWeatherModelDetail.weatherDataArray.first?.date ?? K.Literals.noDate)
+                        .font(.system(size: 22))
+                        .bold()
                 Spacer()
     //MARK: -Temperature text
-                Text(TemperatureFormatter.temperatureToString(temperature: forecastWeatherModelDetail.weatherDataArray.first?.temperature ?? 0.0)).font(.system(size: 22)).bold()
+                Text(TemperatureFormatter.temperatureToString(temperature: forecastWeatherModelDetail.weatherDataArray.first?.temperature ?? 0.0))
+                        .font(.system(size: 22))
+                        .bold()
                 Spacer()
-    //Mark: -Weather image
+    //MARK: -Weather image
                 Image(systemName: forecastWeatherModelDetail.weatherDataArray.first?.conditionName ?? K.Literals.cloud)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 50, height: 40)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 50, height: 40)
                 Spacer()
-                Text(">>").bold()
+                Text(K.Literals.symbol).bold()
             }.foregroundColor(.black)
             .padding()
             .frame(height: 70)

@@ -10,9 +10,13 @@ import SwiftUI
 struct WeatherDetailView: View {
     //MARK: -Properties
     var day : WeatherModel
+    @ObservedObject var weatherDetailVM : WeatherDetailViewModel
     
     init(day: WeatherModel) {
         self.day = day
+        let imageDataSource = ImageDataSource()
+        let imageRepository = ImageRepositoryImplementation(imageDataSource: imageDataSource)
+        self.weatherDetailVM = WeatherDetailViewModel(cityName: day.cityName.lowercased(), imageRepository: imageRepository)
     }
     
     var body: some View {
@@ -41,10 +45,13 @@ struct WeatherDetailView: View {
                 .frame(width: 80,height: 80)
                 .foregroundColor(.white)
                 .padding(.leading)
-            Image("City").resizable()
-                .rotationEffect(.degrees(90))
-                .frame(width: 300,height: 300)
-                .cornerRadius(200)
+            //MARK: -CityImage
+            AsyncImage(url: weatherDetailVM.photo, content: { image in
+                image.image?
+                    .resizable()
+                    .frame(width: 300,height: 300)
+                    .cornerRadius(200)
+            })
             
             HStack{
                 //MARK: -Text: max temperature
@@ -64,7 +71,6 @@ struct WeatherDetailView: View {
         }.background(Image(K.Views.backgroundImage))
             .ignoresSafeArea()
             .foregroundColor(.white)
-            
     }
 }
 

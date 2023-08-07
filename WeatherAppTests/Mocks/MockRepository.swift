@@ -10,7 +10,6 @@ import Foundation
 import CoreLocation
 
 final class MockRepository : RepositoryImplementationProtocol {
-    
     let gotData : Bool
     let weather = WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)])
     
@@ -25,7 +24,7 @@ final class MockRepository : RepositoryImplementationProtocol {
         }
     }
     
-    func getDataWeatherFromLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> WeatherApp.WeatherModel? {
+    func getDataWeatherFromLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> WeatherApp.WeatherModel? {
         switch gotData {
         case true : return weather
         case false : return nil

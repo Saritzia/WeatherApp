@@ -30,7 +30,7 @@ struct HomeForecastView: View {
                     VStack{
                         ForEach(rootViewModel.forecastByDay) { day in
                             NavigationLink {
-                                WeatherDetailView(day:day)
+                                WeatherDetailView(day: day)
                             } label: {
                                 ForecastCellView(forecastWeatherModelDetail: day)
                             }
