@@ -20,13 +20,13 @@ final class TestRepositoryImplementation: XCTestCase {
         sut = nil
         try super.tearDownWithError()
     }
-    
+//MARK: -By city name
     func testDataGotFromDataSource_whenDataNotEmpty_completionReturnData() throws {
         //Given
         let mockedRemotedataSource = MockWeatherRemoteDataSource(weatherGotPossibility: true)
         sut = RepositoryImplementation(remoteDataSource: mockedRemotedataSource)
         //When
-        sut?.getDataWeather(fromName: "", completion: { forecast, error in
+        sut?.getDataWeatherFromName(fromName: "", completion: { forecast, error in
             //Then
             XCTAssertNotNil(forecast,"Could not get forecast data")
         }
@@ -38,7 +38,7 @@ final class TestRepositoryImplementation: XCTestCase {
         let mockedRemotedataSource = MockWeatherRemoteDataSource(weatherGotPossibility: false)
         sut = RepositoryImplementation(remoteDataSource: mockedRemotedataSource)
         //When
-        sut?.getDataWeather(fromName: "", completion: { forecast, error in
+        sut?.getDataWeatherFromName(fromName: "", completion: { forecast, error in
             //Then
             XCTAssertNotNil(error,"An error must be thrown")
         }
@@ -50,13 +50,32 @@ final class TestRepositoryImplementation: XCTestCase {
         let mockedRemotedataSource = MockWeatherRemoteDataSource(weatherGotPossibility: true)
         sut = RepositoryImplementation(remoteDataSource: mockedRemotedataSource)
         //When
-        sut?.getDataWeather(fromName: "", completion: { forecast, error in
+        sut?.getDataWeatherFromName(fromName: "", completion: { forecast, error in
             //Then
-            XCTAssertEqual(forecast, .init(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200, description: "cloud")]),"An error must be thrown")
-            
-           
-        }
-        )
+            XCTAssertEqual(forecast, .init(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)]),"An error must be thrown")
+        })
+    }
+    
+    //MARK: -By location
+    func testDataGotFromDataSourceUsingLocation_whenGotData_expectSameData() async throws {
+        //Given
+        let mockedRemotedataSource = MockWeatherRemoteDataSource(weatherGotPossibility: true)
+        sut = RepositoryImplementation(remoteDataSource: mockedRemotedataSource)
+        //When
+        let forecast = try? await sut?.getDataWeatherFromLocation(latitude: 0.0, longitude: 0.0)
+        //Then
+        XCTAssertEqual(forecast, .init(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)]),"An error must be thrown")
+        XCTAssertNotNil(forecast,"Could not get forecast data")
+    }
+    
+    func testDataGotFromDataSourceUsingLocation_whenFail_expectError() async throws {
+        //Given
+        let mockedRemotedataSource = MockWeatherRemoteDataSource(weatherGotPossibility: false)
+        sut = RepositoryImplementation(remoteDataSource: mockedRemotedataSource)
+        //When
+        let forecast = try? await sut?.getDataWeatherFromLocation(latitude: 0.0, longitude: 0.0)
+        //Then
+        XCTAssertNil(forecast)
     }
     
     func testPerformanceExample() throws {

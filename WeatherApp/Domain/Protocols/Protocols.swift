@@ -6,17 +6,24 @@
 //
 
 import Foundation
+import CoreLocation
 
-protocol NameSarchedRemoteDataSourceProtocol {
-    func getWeatherAPIModel(cityName : String, completion: @escaping (ForecastDataSourceModel?, NetworkError?)->())
+//MARK: -Weather data source protocol
+protocol WeatherRemoteDataSourceProtocol {
+    func getWeatherAPIModelByCityName(cityName : String, completion: @escaping (ForecastDataSourceModel?, NetworkError?)->())
+    func getSessionWeatherByLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees) async throws -> ForecastDataSourceModel? 
 }
 
+//MARK: -Repository protocol
 protocol RepositoryImplementationProtocol {
-    func getDataWeather(fromName cityName : String, completion: @escaping (WeatherModel?, NetworkError?)->()) 
+    func getDataWeatherFromName(fromName cityName : String, completion: @escaping (WeatherModel?, NetworkError?)->())
+    func getDataWeatherFromLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees) async throws -> WeatherModel?
 }
 
+//MARK: -RootVM protocol
 protocol RootViewModelProtocol {
     var forecast : WeatherModel? { get }
     var forecastByDay : [WeatherModel] { get }
     func getForecastWeatherDataFromRepository(cityName : String)
+    func getDataWeatherFromLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees) async throws
 }

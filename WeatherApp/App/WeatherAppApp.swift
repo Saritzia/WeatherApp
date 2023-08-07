@@ -11,7 +11,7 @@ import SwiftUI
 struct WeatherAppApp: App {
     var body: some Scene {
         WindowGroup {
-            let remoteDataSource = NameSarchedRemoteDataSource()
+            let remoteDataSource = WeatherRemoteDataSource()
             let repository = RepositoryImplementation(remoteDataSource: remoteDataSource)
             let rootViewModel = RootViewModel(repository: repository)
             RootView().environmentObject(rootViewModel)

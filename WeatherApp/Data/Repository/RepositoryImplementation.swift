@@ -6,19 +6,19 @@
 //
 
 import Foundation
+import CoreLocation
 
 final class RepositoryImplementation : RepositoryImplementationProtocol {
     //MARK: -Properties
-    private let remoteDataSource : NameSarchedRemoteDataSourceProtocol
+    private let remoteDataSource : WeatherRemoteDataSourceProtocol
     
-    init(remoteDataSource: NameSarchedRemoteDataSourceProtocol) {
+    init(remoteDataSource: WeatherRemoteDataSourceProtocol) {
         self.remoteDataSource = remoteDataSource
     }
     
-    //MARK: -Methods
-    //Function that gets the data from the remote data source and maps it to an APPModel
-    func getDataWeather(fromName cityName : String, completion: @escaping ( WeatherModel?, NetworkError?)->()) {
-        remoteDataSource.getWeatherAPIModel(cityName: cityName) { forecastResponse, error in
+    //MARK: -Get data by city name. Closure
+    func getDataWeatherFromName(fromName cityName : String, completion: @escaping ( WeatherModel?, NetworkError?)->()) {
+        remoteDataSource.getWeatherAPIModelByCityName(cityName: cityName) { forecastResponse, error in
             guard let forecast = forecastResponse else {
                 completion(nil,NetworkError.noData)
                 switch error{
@@ -35,8 +35,19 @@ final class RepositoryImplementation : RepositoryImplementationProtocol {
             completion(weatherAppModel,nil)
         }
     }
+    
+    //MARK: -Get data by location. Async await
+    func getDataWeatherFromLocation(latitude : CLLocationDegrees, longitude : CLLocationDegrees) async throws -> WeatherModel? {
+        
+        guard let weatherDataSourceModel = try? await remoteDataSource.getSessionWeatherByLocation(latitude: latitude, longitude: longitude) else {throw NetworkError.other}
+        
+        //Call the custom map method to get de weather app model
+        let weatherModel = WeatherModelMapper.map(forecast: weatherDataSourceModel)
+        
+        return weatherModel
+    }
 }
 
-    
+
     
 

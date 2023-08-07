@@ -15,13 +15,13 @@ struct WeatherModel : Equatable, Identifiable {
     
     let id = UUID()
     let cityName : String
-    let weatherDataArray : [WeatherDataArray]
+    var weatherDataArray : [WeatherDataArray]
 }
 
 struct WeatherDataArray : Equatable, Hashable {
     let temperature : Double
-    let minTemperature : Double
-    let maxTemperature : Double
+    var minTemperature : Double
+    var maxTemperature : Double
     let date : String
     let conditionId : Int
    

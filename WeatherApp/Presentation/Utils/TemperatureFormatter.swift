@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TemperatureToString {
+struct TemperatureFormatter {
     static func temperatureToString(temperature : Double) -> String{
             let temperature = String (format: "%.1f", temperature)
             return "\(temperature)ºC"

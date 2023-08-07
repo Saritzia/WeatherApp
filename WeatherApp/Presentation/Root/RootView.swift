@@ -33,7 +33,7 @@ struct RootView: View {
 }
 
 struct RootView_Previews: PreviewProvider {
-    static let myEnvObject = RootViewModel(repository: RepositoryImplementation(remoteDataSource: NameSarchedRemoteDataSource()))
+    static let myEnvObject = RootViewModel(repository: RepositoryImplementation(remoteDataSource: WeatherRemoteDataSource()))
     
     static var previews: some View {
         RootView()

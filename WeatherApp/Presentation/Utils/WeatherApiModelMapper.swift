@@ -17,8 +17,8 @@ struct WeatherModelMapper {
                     temperature: (list.main.temp - 273.15),
                     minTemperature: (list.main.temp_min - 273.15),
                     maxTemperature: (list.main.temp_max - 273.15),
-                    //Using format methos to change the Date from api to the whished one
-                    date: FormatDateFromModel.formatDateAndCastToString(date: list.dt),
+                    //Using format method to change the Date from api to the whished one
+                    date: DateFormatterToString.formatDateAndCastToString(date: list.dt),
                     conditionId: list.weather.first?.id ?? 200)
         })
     )}

@@ -45,8 +45,8 @@ final class TestRootViewModel: XCTestCase {
         sut?.getForecastWeatherDataFromRepository(cityName: "")
         
         //Then
-        XCTAssertEqual(sut?.forecast, WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200, description: "cloud")]),"Forecast must have data")
-        XCTAssertEqual(sut?.forecastByDay, [WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200, description: "cloud")])],"ForcastByDay must not be empty")
+        XCTAssertEqual(sut?.forecast, WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)]),"Forecast must have data")
+        XCTAssertEqual(sut?.forecastByDay, [WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)])],"ForcastByDay must not be empty")
     }
     
     func testRootViewModel_whenGotAnError_expectError() throws {

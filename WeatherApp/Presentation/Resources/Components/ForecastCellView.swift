@@ -23,7 +23,7 @@ struct ForecastCellView: View {
                            .bold()
                 Spacer()
     //MARK: -Temperature text
-                Text(TemperatureToString.temperatureToString(temperature: forecastWeatherModelDetail.weatherDataArray.first?.temperature ?? 0.0)).font(.system(size: 22)).bold()
+                Text(TemperatureFormatter.temperatureToString(temperature: forecastWeatherModelDetail.weatherDataArray.first?.temperature ?? 0.0)).font(.system(size: 22)).bold()
                 Spacer()
     //Mark: -Weather image
                 Image(systemName: forecastWeatherModelDetail.weatherDataArray.first?.conditionName ?? K.Literals.cloud)

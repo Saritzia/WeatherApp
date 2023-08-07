@@ -25,7 +25,7 @@ struct WeatherDetailView: View {
                     .bold()
                 Spacer()
                 //MARK: -Text: temperature
-                Text(TemperatureToString.temperatureToString(temperature: day.weatherDataArray.first?.temperature ?? 0.0))
+                Text(TemperatureFormatter.temperatureToString(temperature: day.weatherDataArray.first?.temperature ?? 0.0))
                     .foregroundColor(Color(.white))
                     .font(.system(size: 30))
                     .bold()
@@ -48,14 +48,14 @@ struct WeatherDetailView: View {
             
             HStack{
                 //MARK: -Text: max temperature
-                Text("Max: \(TemperatureToString.temperatureToString(temperature: day.weatherDataArray.first?.maxTemperature ?? 0.0))")
+                Text("Max: \(TemperatureFormatter.temperatureToString(temperature: day.weatherDataArray.first?.maxTemperature ?? 0.0))")
                     .foregroundColor(Color(.white))
                     .font(.system(size: 20))
                     .bold()
                     .padding()
                 Spacer()
                 //MARK: -Text: min temperature
-                Text("Min: \(TemperatureToString.temperatureToString(temperature: day.weatherDataArray.first?.minTemperature ?? 0.0))")
+                Text("Min: \(TemperatureFormatter.temperatureToString(temperature: day.weatherDataArray.first?.minTemperature ?? 0.0))")
                     .foregroundColor(Color(.white))
                     .font(.system(size: 20))
                     .bold()
