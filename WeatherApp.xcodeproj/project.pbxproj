@@ -275,6 +275,14 @@
 			path = TestDetailViewModel;
 			sourceTree = "<group>";
 		};
+		A5B5DA422A82958300C4EF43 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				A5E41ADB2A7811C200346404 /* ContentView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		A5BA42042A7C33D000B1BF06 /* WeatherDetailview */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,7 +354,6 @@
 			isa = PBXGroup;
 			children = (
 				A5B5DA162A80C31100C4EF43 /* Info.plist */,
-				A5E41ADB2A7811C200346404 /* ContentView.swift */,
 				A5E41B1A2A7818C900346404 /* App */,
 				A5E41B112A78132000346404 /* Presentation */,
 				A5E41B0A2A7812BA00346404 /* Domain */,
@@ -442,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				A5BA42072A7E391800B1BF06 /* Utils */,
+				A5B5DA422A82958300C4EF43 /* Splash */,
 				A5BA42042A7C33D000B1BF06 /* WeatherDetailview */,
 				A50328A12A7A837C00569700 /* Current */,
 				A50328972A7A5BCE00569700 /* Root */,

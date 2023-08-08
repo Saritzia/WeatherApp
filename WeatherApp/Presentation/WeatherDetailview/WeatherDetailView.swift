@@ -70,9 +70,10 @@ struct WeatherDetailView: View {
                     .bold()
                     .padding()
             }
-        }.background(Image(K.Views.backgroundImage))
-            .ignoresSafeArea()
-            .foregroundColor(.white)
+        }
+        .background(Image(K.Views.backgroundImage))
+        .ignoresSafeArea()
+        .foregroundColor(.white)
     }
 }
 

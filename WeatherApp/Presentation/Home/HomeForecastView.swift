@@ -15,18 +15,18 @@ struct HomeForecastView: View {
     var body: some View {
         NavigationStack {
             ZStack (alignment: .top) {
-    //MARK: -Background image
+                //MARK: -Background image
                 Image(K.Views.backgroundImage)
                     .resizable()
                     .ignoresSafeArea()
                 VStack{
-    //MARK: -Search bar
+                    //MARK: -Search bar
                     SearchBar().padding(EdgeInsets(
-                                            top: 5,
-                                            leading: 10,
-                                            bottom: 5,
-                                            trailing: 40))
-    //MARK: -Link cells
+                        top: 5,
+                        leading: 10,
+                        bottom: 5,
+                        trailing: 40))
+                    //MARK: -Link cells
                     VStack{
                         ForEach(rootViewModel.forecastByDay) { day in
                             NavigationLink {
@@ -35,16 +35,16 @@ struct HomeForecastView: View {
                                 ForecastCellView(forecastWeatherModelDetail: day)
                             }
                         }.scrollContentBackground(.hidden)
-                         .navigationTitle(rootViewModel.forecast?.cityName ?? K.Literals.city)
-                         .navigationBarTitleDisplayMode(.inline)
+                            .navigationTitle(rootViewModel.forecast?.cityName ?? K.Literals.city)
+                            .navigationBarTitleDisplayMode(.inline)
                     }.padding(EdgeInsets(
-                                top: 30,
-                                leading: 5,
-                                bottom: 5,
-                                trailing: 5))
-               }
+                        top: 30,
+                        leading: 5,
+                        bottom: 5,
+                        trailing: 5))
+                }
             }
-        }
+        }.accentColor(.red)
     }
 }
 

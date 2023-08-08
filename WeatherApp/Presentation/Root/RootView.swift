@@ -22,11 +22,13 @@ struct RootView: View {
                 
                 HomeForecastView().tabItem {
                     Label(K.Literals.fiveDays, systemImage: K.Views.fiveDaysImage)
-                }
+                    }
             }
             
-        } .accentColor(Color.red)
-            .onAppear() {
+        }
+         .toolbar(.hidden, for: .navigationBar)
+         .accentColor(Color.red)
+         .onAppear() {
                 UITabBar.appearance().backgroundColor = .white
             }
     }

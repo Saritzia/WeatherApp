@@ -14,7 +14,7 @@ struct WeatherAppApp: App {
             let remoteDataSource = WeatherRemoteDataSource()
             let repository = RepositoryImplementation(remoteDataSource: remoteDataSource)
             let rootViewModel = RootViewModel(repository: repository)
-            RootView().environmentObject(rootViewModel)
+            ContentView().environmentObject(rootViewModel)
         }
     }
 }

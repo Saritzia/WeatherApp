@@ -10,6 +10,7 @@ import Foundation
 //The constant struct with all the string values or sensible variables used in the app.
 
 struct K {
+    static let title = "WEATHER"
     static let server = "https://api.openweathermap.org/data/2.5/forecast?"
     static let appId = "b359c3499f4947ec6b4e4ec31dda9b99"
     
@@ -32,6 +33,7 @@ struct K {
     }
     
     struct Literals {
+        static let start = "Start!"
         static let textInTextField = "Search..."
         static let symbol = ">>"
         static let noDate = "No date"
@@ -47,6 +49,7 @@ struct K {
         static let city = "Ciudad"
         static let cloud = "cloud"
         static let defaultTemperature = "0.0ºC"
+        static let chevron = "chevron.left"
     }
     
     struct ImageApi{
