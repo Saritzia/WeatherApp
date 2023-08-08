@@ -29,11 +29,11 @@ final class TestRootViewModel: XCTestCase {
         sut = RootViewModel(repository: mockRepository)
         
         //When
-        sut?.getForecastWeatherDataFromRepository(cityName: "")
-        
-        //Then
-        XCTAssertNotNil(sut?.forecast, "Forecast must have data")
-        XCTAssertNotNil(sut?.forecastByDay, "ForcastByDay must not be empty")
+        sut?.getForecastWeatherDataFromRepository(cityName: ""){ forecast, forecastByDay in
+            //Then
+            XCTAssertNotNil(forecast, "Forecast must have data")
+            XCTAssertNotNil(forecastByDay, "ForcastByDay must not be empty")
+        }
     }
     
     func testRootViewModel_whenGotDataCompareDataUsingCityName_expectEqualData() throws {
@@ -42,11 +42,11 @@ final class TestRootViewModel: XCTestCase {
         sut = RootViewModel(repository: mockRepository)
         
         //When
-        sut?.getForecastWeatherDataFromRepository(cityName: "")
-        
-        //Then
-        XCTAssertEqual(sut?.forecast, WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)]),"Forecast must have data")
-        XCTAssertEqual(sut?.forecastByDay, [WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)])],"ForcastByDay must not be empty")
+        sut?.getForecastWeatherDataFromRepository(cityName: ""){ forecast,forecastByDay  in
+            //Then
+            XCTAssertEqual(forecast, WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)]),"Forecast must have data")
+            XCTAssertEqual(forecastByDay, [WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)])],"ForcastByDay must not be empty")
+        }
     }
     
     func testRootViewModel_whenGotAnErrorUsingCityName_expectError() throws {
@@ -55,11 +55,11 @@ final class TestRootViewModel: XCTestCase {
         sut = RootViewModel(repository: mockRepository)
         
         //When
-        sut?.getForecastWeatherDataFromRepository(cityName: "")
-        
-        //Then
-        XCTAssertNil(sut?.forecast, "Must haven an error")
-        XCTAssertEqual(sut?.forecastByDay, [], "ForcastByDay must not be empty")
+        sut?.getForecastWeatherDataFromRepository(cityName: ""){forecast,forecastByDay  in
+            //Then
+            XCTAssertNil(forecast, "Must haven an error")
+            XCTAssertEqual(forecastByDay, [], "ForcastByDay must not be empty")
+        }
     }
     func testRootViewModel_whenGotDataCompareDataUsingLocation_expectEqualData() async throws {
         //Given
@@ -67,9 +67,10 @@ final class TestRootViewModel: XCTestCase {
         sut = RootViewModel(repository: mockRepository)
         
         //When
-        try await sut?.getDataWeatherFromLocation(latitude: 0.0, longitude: 0.0){ forecast in
+        try await sut?.getDataWeatherFromLocation(latitude: 0.0, longitude: 0.0){ forecast, forecastByDay in
             //Then
             XCTAssertEqual(forecast, WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)]),"Forecast must have data")
+            XCTAssertEqual(forecastByDay, [WeatherModel(cityName: "Madrid", weatherDataArray: [WeatherDataArray(temperature: 37, minTemperature: 32, maxTemperature: 37, date: "martes, ago. 1", conditionId: 200)])],"Forecast must have data")
         }
     }
     
@@ -80,9 +81,10 @@ final class TestRootViewModel: XCTestCase {
         
         //When
         
-        try await sut?.getDataWeatherFromLocation(latitude: 0.0, longitude: 0.0){ forecast in
+        try await sut?.getDataWeatherFromLocation(latitude: 0.0, longitude: 0.0){ forecast,forecastByDay  in
             //Then
             XCTAssertNotNil(forecast, "Forecast must have data")
+            XCTAssertNotNil(forecastByDay, "Forecast must have data")
         }
     }
     
@@ -92,9 +94,10 @@ final class TestRootViewModel: XCTestCase {
         sut = RootViewModel(repository: mockRepository)
         
         //When
-        try? await sut?.getDataWeatherFromLocation(latitude: 0.0, longitude: 0.0){ forecast in
+        try? await sut?.getDataWeatherFromLocation(latitude: 0.0, longitude: 0.0){ forecast, forecastByDay in
             //Then
             XCTAssertNil(forecast, "Must haven an error")
+            XCTAssertNil(forecastByDay, "Must haven an error")
         }
     }
 

@@ -16,7 +16,9 @@ struct WeatherDetailView: View {
         self.day = day
         let imageDataSource = ImageDataSource()
         let imageRepository = ImageRepositoryImplementation(imageDataSource: imageDataSource)
-        self.weatherDetailVM = WeatherDetailViewModel(cityName: day.cityName.lowercased(), imageRepository: imageRepository)
+        //Remove white spaces
+        let name = day.cityName.replacingOccurrences(of: K.Literals.blankSpace, with: K.ImageApi.fromBlankToSymbol).lowercased()
+        self.weatherDetailVM = WeatherDetailViewModel(cityName: name, imageRepository: imageRepository,testCompletion: nil)
     }
     
     var body: some View {

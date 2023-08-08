@@ -22,10 +22,16 @@
 		A5B5DA282A81036000C4EF43 /* ImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5DA272A81036000C4EF43 /* ImageDataSource.swift */; };
 		A5B5DA2A2A8105CA00C4EF43 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5DA292A8105CA00C4EF43 /* NetworkError.swift */; };
 		A5B5DA2E2A8106C200C4EF43 /* ImageRepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5DA2D2A8106C200C4EF43 /* ImageRepositoryImplementation.swift */; };
+		A5B5DA332A82132300C4EF43 /* TestPhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5DA322A82132300C4EF43 /* TestPhotoDataSource.swift */; };
+		A5B5DA382A821BD100C4EF43 /* TestPhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5DA372A821BD100C4EF43 /* TestPhotoRepository.swift */; };
+		A5B5DA3A2A821BEB00C4EF43 /* MockPhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5DA392A821BEB00C4EF43 /* MockPhotoRepository.swift */; };
+		A5B5DA3C2A821C1C00C4EF43 /* MockPhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5DA3B2A821C1C00C4EF43 /* MockPhotoDataSource.swift */; };
+		A5B5DA3F2A82241F00C4EF43 /* TestDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5DA3E2A82241F00C4EF43 /* TestDetailViewModel.swift */; };
+		A5B5DA412A82378100C4EF43 /* GetForecastMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5DA402A82378100C4EF43 /* GetForecastMethod.swift */; };
 		A5BA42062A7C33F100B1BF06 /* WeatherDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA42052A7C33F100B1BF06 /* WeatherDetailView.swift */; };
 		A5BA42092A7E393E00B1BF06 /* DateFormatterToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA42082A7E393E00B1BF06 /* DateFormatterToString.swift */; };
 		A5BA42102A7E447300B1BF06 /* TestRootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA420F2A7E447300B1BF06 /* TestRootViewModel.swift */; };
-		A5BA42122A7E44EA00B1BF06 /* MockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA42112A7E44EA00B1BF06 /* MockRepository.swift */; };
+		A5BA42122A7E44EA00B1BF06 /* MockweatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA42112A7E44EA00B1BF06 /* MockweatherRepository.swift */; };
 		A5BA42142A7E4BA600B1BF06 /* WeatherApiModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA42132A7E4BA600B1BF06 /* WeatherApiModelMapper.swift */; };
 		A5BA42162A7E530500B1BF06 /* TemperatureFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA42152A7E530500B1BF06 /* TemperatureFormatter.swift */; };
 		A5E41ADA2A7811C200346404 /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E41AD92A7811C200346404 /* WeatherAppApp.swift */; };
@@ -81,10 +87,16 @@
 		A5B5DA272A81036000C4EF43 /* ImageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataSource.swift; sourceTree = "<group>"; };
 		A5B5DA292A8105CA00C4EF43 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A5B5DA2D2A8106C200C4EF43 /* ImageRepositoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryImplementation.swift; sourceTree = "<group>"; };
+		A5B5DA322A82132300C4EF43 /* TestPhotoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPhotoDataSource.swift; sourceTree = "<group>"; };
+		A5B5DA372A821BD100C4EF43 /* TestPhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPhotoRepository.swift; sourceTree = "<group>"; };
+		A5B5DA392A821BEB00C4EF43 /* MockPhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPhotoRepository.swift; sourceTree = "<group>"; };
+		A5B5DA3B2A821C1C00C4EF43 /* MockPhotoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPhotoDataSource.swift; sourceTree = "<group>"; };
+		A5B5DA3E2A82241F00C4EF43 /* TestDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailViewModel.swift; sourceTree = "<group>"; };
+		A5B5DA402A82378100C4EF43 /* GetForecastMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetForecastMethod.swift; sourceTree = "<group>"; };
 		A5BA42052A7C33F100B1BF06 /* WeatherDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailView.swift; sourceTree = "<group>"; };
 		A5BA42082A7E393E00B1BF06 /* DateFormatterToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterToString.swift; sourceTree = "<group>"; };
 		A5BA420F2A7E447300B1BF06 /* TestRootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRootViewModel.swift; sourceTree = "<group>"; };
-		A5BA42112A7E44EA00B1BF06 /* MockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepository.swift; sourceTree = "<group>"; };
+		A5BA42112A7E44EA00B1BF06 /* MockweatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockweatherRepository.swift; sourceTree = "<group>"; };
 		A5BA42132A7E4BA600B1BF06 /* WeatherApiModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApiModelMapper.swift; sourceTree = "<group>"; };
 		A5BA42152A7E530500B1BF06 /* TemperatureFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureFormatter.swift; sourceTree = "<group>"; };
 		A5E41AD62A7811C200346404 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,12 +170,12 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		A59932E22A7A43C400599FB0 /* TestRespositoryImplementation */ = {
+		A59932E22A7A43C400599FB0 /* TestWeatherRespositoryImplementation */ = {
 			isa = PBXGroup;
 			children = (
 				A59932E32A7A442900599FB0 /* TestRepositoryImplementation.swift */,
 			);
-			path = TestRespositoryImplementation;
+			path = TestWeatherRespositoryImplementation;
 			sourceTree = "<group>";
 		};
 		A59932E52A7A44BC00599FB0 /* AppModel */ = {
@@ -239,6 +251,30 @@
 			path = ImageRepository;
 			sourceTree = "<group>";
 		};
+		A5B5DA2F2A8212D300C4EF43 /* TestPhotoDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				A5B5DA322A82132300C4EF43 /* TestPhotoDataSource.swift */,
+			);
+			path = TestPhotoDataSource;
+			sourceTree = "<group>";
+		};
+		A5B5DA362A821BB100C4EF43 /* TestPhotoRepository */ = {
+			isa = PBXGroup;
+			children = (
+				A5B5DA372A821BD100C4EF43 /* TestPhotoRepository.swift */,
+			);
+			path = TestPhotoRepository;
+			sourceTree = "<group>";
+		};
+		A5B5DA3D2A8222C700C4EF43 /* TestDetailViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A5B5DA3E2A82241F00C4EF43 /* TestDetailViewModel.swift */,
+			);
+			path = TestDetailViewModel;
+			sourceTree = "<group>";
+		};
 		A5BA42042A7C33D000B1BF06 /* WeatherDetailview */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +291,7 @@
 				A5BA42132A7E4BA600B1BF06 /* WeatherApiModelMapper.swift */,
 				A5BA42152A7E530500B1BF06 /* TemperatureFormatter.swift */,
 				A5B5DA142A7FB7AF00C4EF43 /* LocationDataManager.swift */,
+				A5B5DA402A82378100C4EF43 /* GetForecastMethod.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -262,6 +299,7 @@
 		A5BA420A2A7E417E00B1BF06 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A5B5DA3D2A8222C700C4EF43 /* TestDetailViewModel */,
 				A5BA420B2A7E418700B1BF06 /* TestRootViewModel */,
 			);
 			path = Presentation;
@@ -484,7 +522,9 @@
 		A5E41B1E2A7821BC00346404 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A59932E22A7A43C400599FB0 /* TestRespositoryImplementation */,
+				A5B5DA362A821BB100C4EF43 /* TestPhotoRepository */,
+				A5B5DA2F2A8212D300C4EF43 /* TestPhotoDataSource */,
+				A59932E22A7A43C400599FB0 /* TestWeatherRespositoryImplementation */,
 				A5E41B1C2A78216000346404 /* TestWeatherDataSourceModel */,
 			);
 			path = Data;
@@ -495,7 +535,9 @@
 			children = (
 				A5E41B202A78222700346404 /* MockWeatherRemoteDataSource.swift */,
 				A5E41B222A79185000346404 /* URLProtocolMock.swift */,
-				A5BA42112A7E44EA00B1BF06 /* MockRepository.swift */,
+				A5BA42112A7E44EA00B1BF06 /* MockweatherRepository.swift */,
+				A5B5DA392A821BEB00C4EF43 /* MockPhotoRepository.swift */,
+				A5B5DA3B2A821C1C00C4EF43 /* MockPhotoDataSource.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -646,6 +688,7 @@
 				A5B5DA2E2A8106C200C4EF43 /* ImageRepositoryImplementation.swift in Sources */,
 				A5BA42162A7E530500B1BF06 /* TemperatureFormatter.swift in Sources */,
 				A5B5DA152A7FB7AF00C4EF43 /* LocationDataManager.swift in Sources */,
+				A5B5DA412A82378100C4EF43 /* GetForecastMethod.swift in Sources */,
 				A5E41ADA2A7811C200346404 /* WeatherAppApp.swift in Sources */,
 				A5B5DA222A80FB9900C4EF43 /* WeatherDetailViewModel.swift in Sources */,
 				A5E41B102A78131200346404 /* WeatherModel.swift in Sources */,
@@ -663,9 +706,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5E41AEB2A7811C300346404 /* WeatherAppTests.swift in Sources */,
-				A5BA42122A7E44EA00B1BF06 /* MockRepository.swift in Sources */,
+				A5B5DA332A82132300C4EF43 /* TestPhotoDataSource.swift in Sources */,
+				A5BA42122A7E44EA00B1BF06 /* MockweatherRepository.swift in Sources */,
+				A5B5DA3F2A82241F00C4EF43 /* TestDetailViewModel.swift in Sources */,
 				A5E41B252A791BC900346404 /* WeatherRemoteDataSourceTest.swift in Sources */,
+				A5B5DA382A821BD100C4EF43 /* TestPhotoRepository.swift in Sources */,
+				A5B5DA3C2A821C1C00C4EF43 /* MockPhotoDataSource.swift in Sources */,
 				A5BA42102A7E447300B1BF06 /* TestRootViewModel.swift in Sources */,
+				A5B5DA3A2A821BEB00C4EF43 /* MockPhotoRepository.swift in Sources */,
 				A59932E42A7A442900599FB0 /* TestRepositoryImplementation.swift in Sources */,
 				A5E41B232A79185000346404 /* URLProtocolMock.swift in Sources */,
 				A5E41B212A78222700346404 /* MockWeatherRemoteDataSource.swift in Sources */,

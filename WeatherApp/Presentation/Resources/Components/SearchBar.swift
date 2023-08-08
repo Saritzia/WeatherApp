@@ -51,7 +51,7 @@ struct SearchBar: View {
                     //Clear the array before each search
                     rootViewModel.forecastByDay = []
                     //Searching by city name
-                    rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched)
+                    rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched, testCompletion: nil)
                     self.citySearched = ""
                 }
         if isEditing {
@@ -61,7 +61,7 @@ struct SearchBar: View {
                 //Clear the array before each search
                 rootViewModel.forecastByDay = []
                 //Searching by city name
-                rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched)
+                rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched, testCompletion: nil)
                 textIsFocused = false
                 self.citySearched = ""
             }){

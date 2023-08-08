@@ -51,5 +51,6 @@ struct K {
     
     struct ImageApi{
         static let server = "https://api.teleport.org/api/urban_areas/"
+        static let fromBlankToSymbol = "-"
     }
 }

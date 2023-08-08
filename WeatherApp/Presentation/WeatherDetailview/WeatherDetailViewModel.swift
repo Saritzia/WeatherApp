@@ -13,13 +13,14 @@ final class WeatherDetailViewModel : ObservableObject {
     @Published var photo : URL?
     private let imageRepository : ImageRepositoryProtocol?
     
-    init(cityName : String, imageRepository : ImageRepositoryProtocol) {
+    init(cityName : String, imageRepository : ImageRepositoryProtocol, testCompletion: ((TeleportApiImageModel?)->())?) {
         self.cityName = cityName
         self.imageRepository = imageRepository
         DispatchQueue.main.async {
             Task{
                 guard let gotImageFromRepository = try? await self.imageRepository?.getImageDataFromDataSource(cityName: self.cityName) else {return}
                 self.photo = gotImageFromRepository.photos.first?.image.mobile
+                testCompletion?(gotImageFromRepository)
             }
         }
     }
