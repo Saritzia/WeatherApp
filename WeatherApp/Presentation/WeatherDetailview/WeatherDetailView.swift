@@ -11,6 +11,7 @@ struct WeatherDetailView: View {
     //MARK: -Properties
     var day : WeatherModel
     @ObservedObject var weatherDetailVM : WeatherDetailViewModel
+    @Environment(\.dismiss) private var dismiss
     
     init(day: WeatherModel) {
         self.day = day
@@ -22,58 +23,73 @@ struct WeatherDetailView: View {
     }
     
     var body: some View {
-        VStack{
-            HStack{
-                //MARK: -Text: city name
-                Text(day.cityName)
-                    .foregroundColor(Color(.white))
-                    .font(.system(size: 30))
-                    .bold()
-                Spacer()
-                //MARK: -Text: temperature
-                Text(TemperatureFormatter.temperatureToString(temperature: day.weatherDataArray.first?.temperature ?? 0.0))
-                    .foregroundColor(Color(.white))
-                    .font(.system(size: 30))
-                    .bold()
-                    .padding()
-            } .padding(EdgeInsets(
-                        top: 50,
-                        leading: 20,
-                        bottom: 20,
-                        trailing: 20))
-            //MARK: -Weather image
-            Image(systemName: day.weatherDataArray.first?.conditionName ?? K.Literals.cloud)
-                .resizable()
-                .frame(width: 80,height: 80)
-                .foregroundColor(.white)
-                .padding(.leading)
-            //MARK: -CityImage
-            AsyncImage(url: weatherDetailVM.photo, content: { image in
-                image.image?
+        NavigationStack{
+            VStack(alignment: .center){
+                HStack{
+                    //MARK: -Text: city name
+                    Text(day.cityName)
+                        .foregroundColor(Color(.white))
+                        .font(.system(size: 30))
+                        .bold()
+                    Spacer()
+                    //MARK: -Text: temperature
+                    Text(TemperatureFormatter.temperatureToString(temperature: day.weatherDataArray.first?.temperature ?? 0.0))
+                        .foregroundColor(Color(.white))
+                        .font(.system(size: 30))
+                        .bold()
+                        .padding()
+                } .padding(EdgeInsets(
+                    top: 50,
+                    leading: 20,
+                    bottom: 20,
+                    trailing: 20))
+                //MARK: -Weather image
+                Image(systemName: day.weatherDataArray.first?.conditionName ?? K.Literals.cloud)
                     .resizable()
-                    .frame(width: 300,height: 300)
-                    .cornerRadius(200)
-            })
-            
-            HStack{
-                //MARK: -Text: max temperature
-                Text("Max: \(TemperatureFormatter.temperatureToString(temperature: day.weatherDataArray.first?.maxTemperature ?? 0.0))")
-                    .foregroundColor(Color(.white))
-                    .font(.system(size: 20))
-                    .bold()
-                    .padding()
+                    .frame(width: 80,height: 80)
+                    .foregroundColor(.white)
+                    .padding(.leading)
+                //MARK: -CityImage
+                AsyncImage(url: weatherDetailVM.photo, content: { image in
+                    image.image?
+                        .resizable()
+                        .frame(width: 300,height: 300)
+                        .cornerRadius(200)
+                })
+                
+                HStack{
+                    //MARK: -Text: max temperature
+                    Text("Max: \(TemperatureFormatter.temperatureToString(temperature: day.weatherDataArray.first?.maxTemperature ?? 0.0))")
+                        .foregroundColor(Color(.white))
+                        .font(.system(size: 20))
+                        .bold()
+                        .padding()
+                    Spacer()
+                    //MARK: -Text: min temperature
+                    Text("Min: \(TemperatureFormatter.temperatureToString(temperature: day.weatherDataArray.first?.minTemperature ?? 0.0))")
+                        .foregroundColor(Color(.white))
+                        .font(.system(size: 20))
+                        .bold()
+                        .padding()
+                }
                 Spacer()
-                //MARK: -Text: min temperature
-                Text("Min: \(TemperatureFormatter.temperatureToString(temperature: day.weatherDataArray.first?.minTemperature ?? 0.0))")
-                    .foregroundColor(Color(.white))
-                    .font(.system(size: 20))
-                    .bold()
-                    .padding()
-            }
+            }.background(Image(K.Views.backgroundImage))
+                .ignoresSafeArea()
+                .foregroundColor(.white)
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
         }
-        .background(Image(K.Views.backgroundImage))
-        .ignoresSafeArea()
-        .foregroundColor(.white)
+        //Hide the default buttond and create a custom new one
+        .navigationBarBackButtonHidden(true)
+        .navigationTitle(K.title)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Text(K.Literals.back).foregroundColor(.red).bold()
+                }
+                )}
+        }
     }
 }
 

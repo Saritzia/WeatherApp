@@ -19,14 +19,14 @@ struct SearchBar: View {
     
     var body: some View {
         HStack{
-        //MARK: -LocationButton
+            //MARK: -LocationButton
             LocationButton{
                 //Must clear the array before each search
                 rootViewModel.forecastByDay = []
                 //Request current location
                 locationDataManager.requestLocation()
                 if let location = locationDataManager.location{
-                    rootViewModel.getDataWeatherFromLocation(latitude: location.latitude, longitude: location.longitude, testCompletion: nil)  
+                    rootViewModel.getDataWeatherFromLocation(latitude: location.latitude, longitude: location.longitude, testCompletion: nil)
                 }
             }.tint(.white)
                 .cornerRadius(20)
@@ -35,7 +35,7 @@ struct SearchBar: View {
                 .foregroundColor(.black)
                 .frame(width: 50,height: 50)
             
-        //MARK: -Search bar
+            //MARK: -Search bar
             TextField(K.Literals.textInTextField, text:  $citySearched)
                 .padding(.horizontal,20)
                 .background(Color.white)
@@ -54,25 +54,25 @@ struct SearchBar: View {
                     rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched, testCompletion: nil)
                     self.citySearched = ""
                 }
-        if isEditing {
-            //MARK: -Search button
-            Button(action:{
-                self.isEditing = false
-                //Clear the array before each search
-                rootViewModel.forecastByDay = []
-                //Searching by city name
-                rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched, testCompletion: nil)
-                textIsFocused = false
-                self.citySearched = ""
-            }){
-                Image(systemName: K.Views.searchSystemName )}
-                    .frame(width: 50,height: 50,alignment: .leading)
-                    .transition(.move(edge: .leading))
-                    .foregroundColor(.white)
-        }
-        
-    }.padding(10)
-}
+            if isEditing {
+                //MARK: -Search button
+                Button(action:{
+                    self.isEditing = false
+                    //Clear the array before each search
+                    rootViewModel.forecastByDay = []
+                    //Searching by city name
+                    rootViewModel.getForecastWeatherDataFromRepository(cityName: citySearched, testCompletion: nil)
+                    textIsFocused = false
+                    self.citySearched = ""
+                }){
+                    Image(systemName: K.Views.searchSystemName )}
+                .frame(width: 50,height: 50,alignment: .leading)
+                .transition(.move(edge: .leading))
+                .foregroundColor(.white)
+            }
+            
+        }.padding(10)
+    }
 }
 
 struct SearchBar_Previews: PreviewProvider {

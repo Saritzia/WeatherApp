@@ -50,6 +50,7 @@ struct K {
         static let cloud = "cloud"
         static let defaultTemperature = "0.0ºC"
         static let chevron = "chevron.left"
+        static let back = "Back"
     }
     
     struct ImageApi{

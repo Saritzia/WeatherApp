@@ -44,7 +44,9 @@ struct HomeForecastView: View {
                         trailing: 5))
                 }
             }
-        }.accentColor(.red)
+        }.onAppear() {
+                UINavigationBar.appearance().backgroundColor = .white
+            }
     }
 }
 

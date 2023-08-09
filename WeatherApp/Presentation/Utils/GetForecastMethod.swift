@@ -19,8 +19,8 @@ final class GetForecastMethod {
         //Start the loop
         for index in stride (from:0,to: forecast.weatherDataArray.count, by: 1){
             //Each day has 8 elements so if the index is 0 (the loop starts with current day) or is multiple of 8 (24 hours), add the element in the new array
-            if index == 0 || index.isMultiple(of: 8){
-                forecastByDay.append(WeatherModel(cityName: forecast.cityName, weatherDataArray: [forecast.weatherDataArray[forcastByDayIndex]]))
+            if index.isMultiple(of: 8){
+                forecastByDay.append(WeatherModel(cityName: forecast.cityName, weatherDataArray: [forecast.weatherDataArray[index]]))
             }
             //Compare the data of all the elements distinguished by date to obtain the max and min temperature of each day
             if date == forecast.weatherDataArray[index].date {

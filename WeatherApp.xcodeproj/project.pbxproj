@@ -321,13 +321,6 @@
 			path = TestRootViewModel;
 			sourceTree = "<group>";
 		};
-		A5BA420C2A7E433800B1BF06 /* Spies */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Spies;
-			sourceTree = "<group>";
-		};
 		A5E41ACD2A7811C200346404 = {
 			isa = PBXGroup;
 			children = (
@@ -374,7 +367,6 @@
 		A5E41AE92A7811C300346404 /* WeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				A5BA420C2A7E433800B1BF06 /* Spies */,
 				A5E41B1F2A7821CD00346404 /* Mocks */,
 				A5E41B1D2A7821B500346404 /* Suts */,
 				A5E41AEA2A7811C300346404 /* WeatherAppTests.swift */,
