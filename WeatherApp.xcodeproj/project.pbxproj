@@ -34,6 +34,7 @@
 		A5BA42122A7E44EA00B1BF06 /* MockweatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA42112A7E44EA00B1BF06 /* MockweatherRepository.swift */; };
 		A5BA42142A7E4BA600B1BF06 /* WeatherApiModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA42132A7E4BA600B1BF06 /* WeatherApiModelMapper.swift */; };
 		A5BA42162A7E530500B1BF06 /* TemperatureFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BA42152A7E530500B1BF06 /* TemperatureFormatter.swift */; };
+		A5D7A2132A84D57400FD12DD /* TestStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D7A2122A84D57400FD12DD /* TestStringFormatter.swift */; };
 		A5E41ADA2A7811C200346404 /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E41AD92A7811C200346404 /* WeatherAppApp.swift */; };
 		A5E41ADC2A7811C200346404 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E41ADB2A7811C200346404 /* ContentView.swift */; };
 		A5E41ADE2A7811C300346404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5E41ADD2A7811C300346404 /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		A5BA42112A7E44EA00B1BF06 /* MockweatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockweatherRepository.swift; sourceTree = "<group>"; };
 		A5BA42132A7E4BA600B1BF06 /* WeatherApiModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApiModelMapper.swift; sourceTree = "<group>"; };
 		A5BA42152A7E530500B1BF06 /* TemperatureFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureFormatter.swift; sourceTree = "<group>"; };
+		A5D7A2122A84D57400FD12DD /* TestStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStringFormatter.swift; sourceTree = "<group>"; };
 		A5E41AD62A7811C200346404 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5E41AD92A7811C200346404 /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
 		A5E41ADB2A7811C200346404 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				A5E41B1F2A7821CD00346404 /* Mocks */,
 				A5E41B1D2A7821B500346404 /* Suts */,
 				A5E41AEA2A7811C300346404 /* WeatherAppTests.swift */,
+				A5D7A2122A84D57400FD12DD /* TestStringFormatter.swift */,
 			);
 			path = WeatherAppTests;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				A5E41B252A791BC900346404 /* WeatherRemoteDataSourceTest.swift in Sources */,
 				A5B5DA382A821BD100C4EF43 /* TestPhotoRepository.swift in Sources */,
 				A5B5DA3C2A821C1C00C4EF43 /* MockPhotoDataSource.swift in Sources */,
+				A5D7A2132A84D57400FD12DD /* TestStringFormatter.swift in Sources */,
 				A5BA42102A7E447300B1BF06 /* TestRootViewModel.swift in Sources */,
 				A5B5DA3A2A821BEB00C4EF43 /* MockPhotoRepository.swift in Sources */,
 				A59932E42A7A442900599FB0 /* TestRepositoryImplementation.swift in Sources */,
